@@ -8,7 +8,7 @@ function App() {
 
     const fetchWeather = async () => {
         try {
-            const response = await fetch(`${process.env.BACKEND_URL}/api/weather?city=${city}`);
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/weather?city=${city}`);
             const data = await response.json();
             if (data.error) {
                 setError(data.error);
