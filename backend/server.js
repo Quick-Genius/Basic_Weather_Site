@@ -7,7 +7,7 @@ const app = express();
 
 // CORS configuration
 const corsOptions = {
-    origin: `${process.env.VITE_FRONTEND_URL}`, // your frontend application URL
+    origin: `${process.env.FRONTEND_URL}`, // your frontend application URL
     methods: ['GET', 'POST'],
     credentials: true,
     optionsSuccessStatus: 200
