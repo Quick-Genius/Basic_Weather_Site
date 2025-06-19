@@ -7,7 +7,7 @@ const app = express();
 
 // CORS configuration
 const corsOptions = {
-    origin: `${process.env.FRONTEND_URL}`, // your frontend application URL
+    origin: `${process.env.VITE_FRONTEND_URL}`, // your frontend application URL
     methods: ['GET', 'POST'],
     credentials: true,
     optionsSuccessStatus: 200
@@ -18,7 +18,6 @@ PORT = process.env.PORT;
 app.get('/api/weather/', async(req,res)=>{
     const city = req.query.city;
     const apiKey = process.env.OPENWEATHER_API_KEY;
-
     if(!city){
         res.status(404).json({"message" : "City not found, enter the correct name!"})
     }
@@ -32,12 +31,10 @@ app.get('/api/weather/', async(req,res)=>{
     catch (err) {
         res.status(500).json({ error: 'Weather fetch failed', message: err.message });
     }
-    
 })
 
-
 app.listen(PORT, () => {
-    console.log(`http://localhost:${PORT}`);
+    console.log(`Server running on port http://localhost:${PORT}`);
 });
 
 
